@@ -9,6 +9,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: /\w+(\.\w+)?@\w+.\w{2,3}/ }
   validates :password, presence: true
   validates :username, uniqueness: true
-  validates :rates, numericality: true
-  validates :coach_since, format: { with: /(19|20)\d{2}/ }
+  validates :rates, numericality: true, allow_nil: true
 end

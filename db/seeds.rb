@@ -14,7 +14,7 @@ puts 'Creating users'
 5.times do |i|
   User.create!({
     email: Faker::Internet.email,
-    encrypted_password: 'abc',
+    password: '123456',
     username: Faker::Name.first_name,
     rates: rand(10..100)
   })
