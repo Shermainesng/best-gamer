@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :coach_games
 
-  validates :email, presence: true, uniqueness: true, format: { with: /^[^@\s]+@[^@\s]+\.[^@\s]+$/ }
+  validates :email, presence: true, uniqueness: true, format: { with: /\w+(\.\w+)?@\w+.\w{2,3}/ }
   validates :password, presence: true
   validates :username, uniqueness: true
   validates :rates, numericality: true

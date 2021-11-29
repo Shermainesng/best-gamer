@@ -3,4 +3,6 @@ class PagesController < ApplicationController
     @game = Game.new
   end
 
+
+
 end
