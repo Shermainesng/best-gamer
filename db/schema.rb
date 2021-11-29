@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_11_29_080659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "country"
+    t.boolean "skype_discord"
+    t.string "profile_pic"
+    t.boolean "receive_email"
+    t.boolean "on_vacation"
+    t.integer "rates"
+    t.date "coach_since"
+    t.text "profile_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
