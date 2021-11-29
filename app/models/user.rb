@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :coach_games
+  has_many :games, through: :coach_games
 
   validates :email, presence: true, uniqueness: true, format: { with: /\w+(\.\w+)?@\w+.\w{2,3}/ }
   validates :password, presence: true
