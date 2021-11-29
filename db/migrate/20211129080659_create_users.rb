@@ -11,6 +11,9 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :profile_pic
       t.boolean :receive_email
       t.boolean :on_vacation
+      t.integer :rates
+      t.date :coach_since
+      t.text :profile_content
 
       t.timestamps
     end
