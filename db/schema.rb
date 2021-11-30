@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_025059) do
   create_table "orders", force: :cascade do |t|
     t.string "status"
     t.integer "paid_amount"
-    t.string "duration"
+    t.integer "duration"
     t.bigint "slot_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
