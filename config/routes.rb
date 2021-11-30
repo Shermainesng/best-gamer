@@ -4,9 +4,7 @@ Rails.application.routes.draw do
 
   get 'coaches', to: 'users#index'
 
-  # get 'coaches/:game', to: 'users#index'
-
-  # get 'coaches/:game/:username', to: 'users#show'
+  get '/:username', to: 'users#show'
 
   resources :slots, only: [:show] do
     resources :orders, only: [:new, :create, :show]
