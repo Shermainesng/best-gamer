@@ -5,15 +5,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params["id"])
+    @user = User.find_by(username: params[:username])
+    @order = Order.new
   end
-
-  private
-
-
-
-  # def filter_games_params
-  #   params.require(:)
-  # end
 
 end
