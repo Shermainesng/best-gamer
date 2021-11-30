@@ -1,3 +1,10 @@
 <h1><%= @user.username %></h1>
 
-<%= render  "orders/new" %>
+<div id="calendar">
+  <%= calendar do |date| %>
+    <%= date.day %>
+    <% if @user.slots.date[date] %>
+      <%= link_to  "book", orders_new_path %>
+    <% end %>
+  <% end %>
+</div>
