@@ -1,5 +1,8 @@
 puts 'Creating games'
 
+Game.destroy_all
+User.destroy_all
+
 games = ['League of Legends', 'Valorant', "Dota 2", "Fortnite"]
 games.each do |game|
   Game.create!({
@@ -18,6 +21,7 @@ puts 'Creating users'
     username: Faker::Name.first_name,
     rates: rand(10..100)
   })
+  User.last.games << Game.all.sample << Game.all.sample << Game.all.sample
 end
 
 puts 'Created users'

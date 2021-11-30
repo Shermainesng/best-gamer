@@ -1,5 +1,5 @@
 <h1>Pages#home</h1>
-<%= simple_form_for @game, url: 'coaches', method: "GET" do |f| %>
+<%= simple_form_for @game, url: 'coaches/:id', method: "POST" do |f| %>
   <%= f.input :id, collection: @games %>
   <%= f.button :submit, "Find My Coach", class: "btn btn-primary" %>
 <% end %>
