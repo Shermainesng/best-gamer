@@ -4,6 +4,6 @@
     <h5 class="card-title"><%= user.username %></h5>
     <p class="card-text"><%= user.rates %> || <%= user.games.map(&:name) %></p>
 
-    <%# <a href=<%="#{@game.name.gsub(" ","")}/#{user.username.gsub(" ","")}"%> class="btn btn-primary">></a> %>
+    <a href=<%="/#{user.username.gsub(" ","")}"%> class="btn btn-primary">></a>
   </div>
 </div>

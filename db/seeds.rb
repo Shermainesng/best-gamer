@@ -26,7 +26,7 @@ puts 'Creating users'
   User.last.games << Game.all.sample << Game.all.sample << Game.all.sample
   # User.last.slots << Slot.create(booked: false, date: Date.today, user: User.last)
   5.times do |i|
-    Slot.create({
+    Slot.create!({
       booked: true,
       date: Date.today + rand(10),
       user: User.last
