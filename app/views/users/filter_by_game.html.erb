@@ -3,4 +3,14 @@
   <p>Become the better gamer in League of Legends. Get coaching to reach Challenger!</p>
 </div>
 
+<%= form_with url: "/coaches/:id", method: :get do |f| %>
+  <%= f.label :username, "Search for coach by name:" %>
+  <%= f.text_field :username %>
+  <%= f.label :country %>
+  <%= f.text_field :country %>
+  <label for="customRange3" class="form-label">Price</label>
+  <input type="range" class="form-range" min="10" max="100" step="1" id="customRange3">
+  <%= f.submit "Search" %>
+<% end %>
+
 <%= render @users %>

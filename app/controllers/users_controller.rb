@@ -14,4 +14,8 @@ class UsersController < ApplicationController
     params.require(:game).permit(:id)
   end
 
+  # def filter_games_params
+  #   params.require(:)
+  # end
+
 end
