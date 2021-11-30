@@ -6,6 +6,6 @@
 <%= month_calendar do |date| %>
   <%= date %>
   <% if dates.include?(date) %>
-      <%= link_to  "available", new_order_path %>
+      <%= link_to  "available", new_slot_order_path(@user.slots.find_by(date: date))%>
     <% end %>
 <% end %>
