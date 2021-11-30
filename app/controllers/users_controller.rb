@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @users = @game.users
   end
 
+  def show
+    @user = User.find(params["id"])
+  end
+
   private
 
   def game_params
