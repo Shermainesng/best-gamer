@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  get 'coaches/:game', to: 'users#index'
 
-  get 'coaches/:game/:username', to: 'users#show'
+  get 'coaches', to: 'users#index'
+
+  # get 'coaches/:game', to: 'users#index'
+
+  # get 'coaches/:game/:username', to: 'users#show'
 
   resources :orders, only: [:new, :create]
 

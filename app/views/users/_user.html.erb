@@ -2,7 +2,8 @@
   <img src="https://dfgw1zqlrucay.cloudfront.net/assets/v2/marketing/gamersensei-tier2-5ad29318317037fb19377110e12c329bf657becf8fa6c5c30e392453896395b3.jpg" class="card-img-top" alt="image">
   <div class="card-body">
     <h5 class="card-title"><%= user.username %></h5>
-    <p class="card-text"><%= user.rates %></p>
-    <a href=<%="#{@game.name.gsub(" ","")}/#{user.username.gsub(" ","")}"%> class="btn btn-primary">></a>
+    <p class="card-text"><%= user.rates %> || <%= user.games.map(&:name) %></p>
+
+    <%# <a href=<%="#{@game.name.gsub(" ","")}/#{user.username.gsub(" ","")}"%> class="btn btn-primary">></a> %>
   </div>
 </div>
