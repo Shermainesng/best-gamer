@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def index
     @users = apply_scopes(User).all
+    # raise
   end
 
   def show

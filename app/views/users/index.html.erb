@@ -3,16 +3,28 @@
   <p>Become the better gamer in League of Legends. Get coaching to reach Challenger!</p>
 </div>
 
-<%= form_with url: "#", method: :get do |f| %>
-  <%= f.label :username, "Search for coach by name:" %>
-  <%= f.text_field :filter_username %>
-  <%= f.label :country %>
-  <%= f.text_field :filter_country %>
-  <%= f.label :min_price %>
-  <%= f.text_field :min_price %>
-  <%= f.label :max_price %>
-  <%= f.text_field :max_price %>
-  <%= f.submit "Search" %>
-<% end %>
+<form action="#" method="get">
+  <div class="row">
+    <div class="col">
+      <label for="filter_username">Type in your coach name</label>
+      <input type="text" class="form-control" name="filter_username" placeholder="e.g. Milo" value="<%= params[:filter_username]%>">
+    </div>
+    <div class="col">
+      <label for="filter_country">Country</label>
+      <input type="text" class="form-control" name="filter_country" placeholder="e.g. Singapore" value="<%= params[:filter_country]%>">
+    </div>
+    <div class="col">
+      <label for="filter_price[min_price]">Min price</label>
+      <input type="number" class="form-control" name="filter_price[min_price]" value="<%= params[:filter_price["min_price"]]%>">
+    </div>
+    <div class="col">
+      <label for="filter_price[max_price]">Max price</label>
+      <input type="number" class="form-control" name="filter_price[max_price]" value="<%= params[:filter_price["max_price"]]%>">
+    </div>
+    <div class="col">
+      <input type="submit" value="Submit" class="btn btn-primary">
+    </div>
+  </div>
+</form>
 
 <%= render @users %>
