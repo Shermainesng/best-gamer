@@ -1,17 +1,11 @@
 class UsersController < ApplicationController
-  def index
-    @game = Game.find_by(name: params[:game])
-    @users = @game.users
+  has_scope :filter_country
+  has_scope :filter_username
+  has_scope :filter_price, using: %i[min_price max_price], type: :hash
+  has_scope :filter_game
 
-    if params[:username].present? && params[:country].present?
-      @users = @users.find_by(username: params[:username], country: params[:country])
-    elsif params[:username].present?
-      @users = @users.find_by(username: params[:username])
-    elsif params[:country].present?
-      @users = @users.find_by(country: params[:country])
-    else
-      @users
-    end
+  def index
+    @users = apply_scopes(User).all
   end
 
   def show
