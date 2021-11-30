@@ -3,6 +3,6 @@
   <div class="card-body">
     <h5 class="card-title"><%= user.username %></h5>
     <p class="card-text"><%= user.rates %></p>
-    <a href=<%="#{@game.name}/#{user.username}"%> class="btn btn-primary">></a>
+    <a href=<%="#{@game.name.gsub(" ","")}/#{user.username.gsub(" ","")}"%> class="btn btn-primary">></a>
   </div>
 </div>

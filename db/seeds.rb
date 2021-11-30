@@ -22,6 +22,7 @@ puts 'Creating users'
     rates: rand(10..100)
   })
   User.last.games << Game.all.sample << Game.all.sample << Game.all.sample
+  User.last.slots << Slot.create(status: false, date: Date.today, user: User.last)
 end
 
 puts 'Created users'

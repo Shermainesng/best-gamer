@@ -1,3 +1,11 @@
 <h1><%= @user.username %></h1>
 
-<%= render  "orders/new" %>
+<% dates = @user.slots.map {|slot| slot.date} %>
+
+
+<%= month_calendar do |date| %>
+  <%= date %>
+  <% if dates.include?(date) %>
+      <%= link_to  "available", new_order_path %>
+    <% end %>
+<% end %>
