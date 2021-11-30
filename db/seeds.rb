@@ -19,7 +19,8 @@ puts 'Creating users'
     email: Faker::Internet.email,
     password: '123456',
     username: Faker::Name.first_name,
-    rates: rand(10..100)
+    rates: rand(10..100),
+    country: ["Singapore", "China", "England"].sample
   })
   User.last.games << Game.all.sample << Game.all.sample << Game.all.sample
 end
