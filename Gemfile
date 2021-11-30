@@ -67,3 +67,6 @@ gem 'devise'
 
 # calendar
 gem "simple_calendar", "~> 2.4"
+
+# bootstrap
+gem 'bootstrap', '~> 5.1.3'
