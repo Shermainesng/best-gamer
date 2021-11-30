@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_025059) do
   end
 
   create_table "slots", force: :cascade do |t|
-    t.boolean "status"
+    t.boolean "booked"
     t.date "date"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -23,7 +23,14 @@ puts 'Creating users'
     country: ["Singapore", "China", "England"].sample
   })
   User.last.games << Game.all.sample << Game.all.sample << Game.all.sample
-  User.last.slots << Slot.create(status: false, date: Date.today, user: User.last)
+  # User.last.slots << Slot.create(booked: false, date: Date.today, user: User.last)
+  5.times do |i|
+    Slot.create({
+      booked: true,
+      date: Date.today + rand(10),
+      user: User.last
+    })
+  end
 end
 
 puts 'Created users'
