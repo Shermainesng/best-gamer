@@ -1,9 +1,9 @@
 <div>
-  <h1>Our Coaches</h1>
+  <h1 class='text-center'>Our Coaches</h1>
   <p>Become the better gamer in League of Legends. Get coaching to reach Challenger!</p>
 </div>
 
-<form action="#" method="get">
+<form action="#" method="get" class="text-center">
   <input name="filter_game" type="hidden" value="<%= params[:filter_game] %>" />
   <div class="row">
     <div class="col">
@@ -28,7 +28,7 @@
   </div>
 </form>
 
-<div class="container">
+<div class="container mt-4">
   <div class="row">
     <%= render @users %>
   </div>
