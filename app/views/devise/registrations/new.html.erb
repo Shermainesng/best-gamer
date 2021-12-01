@@ -1,0 +1,25 @@
+<div class="d-flex container border w-50 h-50">
+  <div class="sidebanner" style="background-image: url('https://cdn.vox-cdn.com/thumbor/66cF9RQO6xEPpe1MsU4vdxVq37Y=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22236383/acastro_210113_1777_gamingstock_0002.jpg'); background-size: cover; width: 150px;" alt="gaming is kewl')">
+  </div>
+  <div>
+    <div class="container m-3 h-25">
+      <h1>Sign up for Bestgamer</h1>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :email, placeholder: 'Your email', required: true, autofocus: true, input_html: { autocomplete: "email", class: "form-control-sm" }%>
+              <%= f.input :username, placeholder: 'Your username', required: true, autofocus: true, input_html: { class: "form-control-sm" }%>
+                <%= f.input :password, placeholder: 'Your password', required: true, hint: ("#{@minimum_password_length} characters minimum" if
+                  @minimum_password_length), input_html: { autocomplete: "new-password", class: "form-control-sm" } %>
+                  <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password", class: "form-control-sm" } %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "btn btn-primary my-1" %>
+          </div>
+      <% end %>
+      <p>
+        Already have an account?<%= link_to "Log in", new_session_path(resource_name) %><br />
+      </p>
+  </div>
+
+</div>

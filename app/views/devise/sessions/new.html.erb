@@ -1,0 +1,32 @@
+<div class="d-flex container border w-50 h-50">
+  <div class="sidebanner" style="background-image: url('https://cdn.vox-cdn.com/thumbor/66cF9RQO6xEPpe1MsU4vdxVq37Y=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22236383/acastro_210113_1777_gamingstock_0002.jpg'); background-size: cover; width: 150px;" alt="gaming is kewl')">
+  </div>
+  <div>
+    <div class="container m-3">
+      <h1>Login to Bestgamer</h1>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    label: "Email address",
+                    placeholder: "Your email",
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email", class: "form-control-sm" } %>
+        <%= f.input :password,
+                    label: "Password",
+                    placeholder: "Your password",
+                    required: false,
+                    input_html: { autocomplete: "current-password",  class: "form-control-sm" } %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name)%>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: "btn btn-primary mb-3" %>
+      </div>
+      <% end %>
+      <p class="text-center">
+        New to BetterGamer?
+        <%= link_to "Sign up", new_registration_path(resource_name) %>
+      </p>
+    </div>
+  </div>
+</div>
