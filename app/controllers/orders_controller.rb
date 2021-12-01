@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @order.slot = Slot.find(params[:slot_id].to_i)
+    @slot = @order.slot
   end
 
   def create
@@ -22,6 +24,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
+
 
 
   private

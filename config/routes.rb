@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   get '/:username', to: 'users#show'
 
-  resources :slots, only: [:show] do
-    resources :orders, only: [:new, :create, :show]
 
+  resources :slots, only: [:show] do
+    resources :orders, only: [:new, :create, :show] do
+      get 'confirmed', to: 'orders#confirmed'
+    end
   end
 
 

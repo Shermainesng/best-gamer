@@ -10,7 +10,7 @@
   </div>
   <div class="container m-2 border p-3">
     <p>YOUR DETAILS</p>
-    <form action="#">
+      <form action="#" method="get">
       <div class="form-group">
         <label for="exampleFormControlSelect1">CURRENCY</label>
         <select class="form-control" id="exampleFormControlSelect1">
@@ -26,6 +26,7 @@
           <p>YOUR TOTAL</p>
           <h3><%= @order.duration * @order.slot.user.rates %></h3>
         </div>
+        <input type="hidden" value=<%=@order%>>
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </form>
