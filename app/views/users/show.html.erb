@@ -34,7 +34,7 @@
   <%= month_calendar do |date| %>
     <%= date %>
     <% if @available_dates.include?(date) %>
-      <%= link_to "available", new_slot_order_path(Slot.by_user(@user).find_by(date: date))%>
+      <%= link_to "Available", new_slot_order_path(Slot.by_user(@user).find_by(date: date)), class: "btn btn-dark" %>
     <% end %>
   <% end %>
 </div>
