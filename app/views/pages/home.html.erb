@@ -1,7 +1,14 @@
-<h1>Pages#home</h1>
-
-<%= form_with url: "/coaches", method: :get do |form| %>
-  <%= form.label :filter_game, "Search for:" %>
-  <%= form.select :filter_game,  @games.all.map(&:name) %>
-  <%= form.submit "Search" %>
-<% end %>
+<div class='home-background-image'>
+  <h2>I want to go pro in</h2>
+  <form action="/coaches">
+    <div class="form-custom">
+      <div>
+        <select name="filter_game", class="form-content">
+          <% @games.all.each do |game| %>
+            <option value="<%= game.name %>", class="dropdown-content"><%= game.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <input type="submit", class="btn-primary submit-btn", value="Find your coach">
+  </form>
+</div>
