@@ -39,6 +39,7 @@ gem 'devise'
 gem "simple_calendar", "~> 2.4"
 
 gem 'pundit'
+gem 'bootstrap', '~> 4.6.1'
 
 group :development, :test do
   gem 'pry-byebug'
