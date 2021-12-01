@@ -6,11 +6,12 @@ class UsersController < ApplicationController
 
   def index
     @users = apply_scopes(User).all
-    # raise
   end
 
   def show
     @user = User.find_by(username: params[:username])
+    @available_slots = Slot.by_user(@user).available
+    @available_dates = @available_slots.map { |slot| slot.date }
     @order = Order.new
   end
 
