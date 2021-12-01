@@ -15,20 +15,28 @@ puts 'Games created'
 
 puts 'Creating users'
 
-5.times do |i|
+50.times do |i|
   User.create!({
+    username: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: '123456',
-    username: Faker::Name.first_name,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.first_name,
+    country: ["Singapore", "China", "England", "USA"].sample,
+    skype_discord: Faker::FunnyName.two_word_name,
+    profile_picture: Faker::Avatar.image,
+    receive_email: true,
+    on_vacation: false,
     rates: rand(10..100),
-    country: ["Singapore", "China", "England"].sample
+    coach_since: Faker::Date.birthday,
+    profile_content: Faker::Lorem.paragraph(sentence_count: 5)
   })
   User.last.games << Game.all.sample << Game.all.sample << Game.all.sample
   # User.last.slots << Slot.create(booked: false, date: Date.today, user: User.last)
-  5.times do |i|
+  10.times do |i|
     Slot.create!({
-      booked: true,
-      date: Date.today + rand(10),
+      booked: false,
+      date: Date.today + rand(30),
       user: User.last
     })
   end
