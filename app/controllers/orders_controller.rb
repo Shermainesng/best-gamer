@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.slot = @slot
     @order.user = current_user
+    @order.paid_amount = @order.slot.user.rates * @order.duration
 
     if @order.save!
       @order.slot.booked = true
