@@ -14,5 +14,4 @@ class UsersController < ApplicationController
     @available_dates = @available_slots.map { |slot| slot.date }
     @order = Order.new
   end
-
 end
