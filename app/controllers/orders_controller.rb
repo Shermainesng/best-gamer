@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
 
     if @order.save!
       @order.slot.booked = true
+      @order.slot.save
       redirect_to slot_order_path(@slot, @order)
     else
       render :new

@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
 
   resources :slots, only: [:show] do
-    resources :orders, only: [:new, :create, :show] do
-      get 'confirmed', to: 'orders#confirmed'
-    end
+    resources :orders, only: [:new, :create, :show]
+    get 'confirmed', to: 'orders#confirmed'
+
   end
 
 
