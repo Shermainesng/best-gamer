@@ -1,9 +1,11 @@
-<div class="card" style="width: 18rem;">
-  <img src="https://dfgw1zqlrucay.cloudfront.net/assets/v2/marketing/gamersensei-tier2-5ad29318317037fb19377110e12c329bf657becf8fa6c5c30e392453896395b3.jpg" class="card-img-top" alt="image">
-  <div class="card-body">
-    <h5 class="card-title"><%= user.username %></h5>
-    <p class="card-text"><%= user.rates %> || <%= user.games.map(&:name) %></p>
-
-    <a href=<%="/#{user.username.gsub(" ","")}"%> class="btn btn-primary">></a>
+<div class="grid-container p-3">
+  <div class="card" style="width: 13rem;">
+      <%= image_tag(user.profile_picture) %>
+    <div class="card-body">
+      <h5 class="card-title"><%= user.username %></h5>
+      <p class="card-text"><%= user.country %>
+      <p class="card-text"><%= user.rates %>/hr || <%= user.games.map(&:name) %></p>
+      <a href=<%="/#{user.username.gsub(" ","")}"%> class="btn btn-primary">></a>
+    </div>
   </div>
 </div>

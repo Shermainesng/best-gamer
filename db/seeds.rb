@@ -17,11 +17,11 @@ puts 'Creating users'
 
 50.times do |i|
   User.create!({
-    username: Faker::Name.first_name,
+    username: Faker::Twitter.screen_name,
     email: Faker::Internet.email,
     password: '123456',
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     country: ["Singapore", "China", "England", "USA"].sample,
     skype_discord: Faker::FunnyName.two_word_name,
     profile_picture: Faker::Avatar.image,
