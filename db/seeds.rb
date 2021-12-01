@@ -10,7 +10,7 @@ games.each do |game|
     name: game
   })
   puts "#{game} created"
-  10.times do
+  12.times do
     User.create!({
       username: Faker::Twitter.screen_name,
       email: Faker::Internet.email,
