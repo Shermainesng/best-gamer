@@ -1,11 +1,9 @@
 <h1><%= @user.username %></h1>
 
-<% dates = @user.slots.map {|slot| slot.date} %>
-
 
 <%= month_calendar do |date| %>
   <%= date %>
-  <% if dates.include?(date) %>
-      <%= link_to  "available", new_slot_order_path(@user.slots.find_by(date: date))%>
-    <% end %>
+  <% if @available_dates.include?(date) %>
+    <%= link_to "available", new_slot_order_path(@slot)%>
+  <% end %>
 <% end %>
