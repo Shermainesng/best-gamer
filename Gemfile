@@ -35,6 +35,9 @@ gem 'has_scope'
 gem 'faker'
 gem 'devise'
 
+gem 'money-rails'
+gem 'stripe'
+
 # calendar
 gem "simple_calendar", "~> 2.4"
 
