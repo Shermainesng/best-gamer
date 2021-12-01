@@ -15,7 +15,7 @@ puts 'Games created'
 
 puts 'Creating users'
 
-50.times do |i|
+20.times do |i|
   User.create!({
     username: Faker::Twitter.screen_name,
     email: Faker::Internet.email,

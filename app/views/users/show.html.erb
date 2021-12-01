@@ -1,9 +1,40 @@
-<h1><%= @user.username %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <%= render 'shared/avatar' %>
+      <div class='key-info'>
+        <h1><%= @user.username %></h1>
+        <h3>$<%= @user.rates %>/hr</h3>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+          <div>
+            <h5 class="card-title">Coach Since: </h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @user.coach_since %></h6>
+        </div>
+        <div>
+          <h5 class="card-title">Country: </h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= @user.country %></h6>
+      </div>
+      <div>
+        <h5 class="card-title">Games: </h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <% @user.games.each do |game| %>
+            <%= game.name %><br>
+          <% end %>
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-<%= month_calendar do |date| %>
-  <%= date %>
-  <% if @available_dates.include?(date) %>
-    <%= link_to "available", new_slot_order_path(@slot)%>
+<div>
+  <%= month_calendar do |date| %>
+    <%= date %>
+    <% if @available_dates.include?(date) %>
+      <%= link_to "available", new_slot_order_path(Slot.by_user(@user).find_by(date: date))%>
+    <% end %>
   <% end %>
-<% end %>
+</div>
