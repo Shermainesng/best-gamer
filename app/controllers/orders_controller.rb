@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
 
     if @order.save!
+      @order.booked = true
       redirect_to slot_order_path(@slot, @order)
     else
       render :new
