@@ -17,7 +17,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% @games.all.each do |game| %>
-              <a class="dropdown-item" href="/coaches/?<%= game.name %>"><%= game.name %></a>
+              <a class="dropdown-item" href="/coaches/?filter_game=<%= game.name %>"><%= game.name %></a>
             <% end %>
           </div>
         </li>
@@ -28,7 +28,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">My Profile</a>
             <a class="dropdown-item" href="#">Orders</a>
-            <a class="dropdown-item" href="/users/sign_out", data-method="delete">Logout</a>
+            <a class="dropdown-item" href="<%=destroy_user_session_path%>", data-method="delete">Logout</a>
           </div>
         </li>
       <% else %>
