@@ -14,8 +14,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :rates, numericality: true, allow_nil: true
 
-  scope :filter_username, -> given_username { where(username: given_username) }
-  scope :filter_country, -> given_country { where(country: given_country) }
+  scope :filter_username, -> given_username { where("username ILIKE ?", given_username) }
+  scope :filter_country, -> given_country { where("country ILIKE ?", given_country) }
   scope :filter_price, -> min_price, max_price { where("rates >= ? AND rates <= ?", min_price, max_price) }
   scope :filter_game, -> (given_game) { joins(:games).where(games: {name: given_game}) }
 

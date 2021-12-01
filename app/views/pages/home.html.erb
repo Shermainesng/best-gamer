@@ -1,14 +1,7 @@
 <h1>Pages#home</h1>
 
-<ul>
-  <% @games.each do |game| %>
-    <%= link_to  game.name, "coaches/filter_game=#{game.name}" %>
-  <% end %>
-</ul>
-
-
 <%= form_with url: "/coaches", method: :get do |form| %>
   <%= form.label :filter_game, "Search for:" %>
-  <%= form.text_field :filter_game %>
+  <%= form.select :filter_game,  @games.all.map(&:name) %>
   <%= form.submit "Search" %>
 <% end %>
