@@ -32,6 +32,16 @@
           </div>
         </li>
       <% else %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-nav-item" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Game
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% @games.all.each do |game| %>
+              <a class="dropdown-item" href="/coaches/?filter_game=<%= game.name %>"><%= game.name %></a>
+            <% end %>
+          </div>
+        </li>
         <li class="nav-item ">
           <%= link_to "Login", new_user_session_path, class: "nav-link custom-nav-item" %>
         </li>
