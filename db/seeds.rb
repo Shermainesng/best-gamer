@@ -28,10 +28,14 @@ games.each do |game|
     })
     User.last.games << game_inst
     10.times do
+      @start = Faker::Time.between(from: DateTime.now, to: (DateTime.now + 2.month))
+      @end = @start + 1.hour
       Slot.create!({
         booked: false,
-        date: Date.today + rand(30),
-        user: User.last
+        date: @start.to_date,
+        user: User.last,
+        start: @start.to_time,
+        end: @end.to_time
       })
     end
   end
