@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     end
 
     slots_booked_by_current_user.map { |slot| slot.date }
+  end
 
+  def slots_date
+    @user = User.find_by(username: params[:username])
+    @date = Date.parse(params[:date])
+    @availables = @user.slots.select { |slot| (slot.date == @date) && (slot.booked == false)}
   end
 end
