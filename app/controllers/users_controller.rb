@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @coach_slots = Slot.by_user(@user)
     @available_slots = @coach_slots.available
     @available_dates = @available_slots.map { |slot| slot.date }
+    @reviews = @user.reviews
 
     # check if user is signed in
 
