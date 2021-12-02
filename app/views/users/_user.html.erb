@@ -8,7 +8,7 @@
       <div class="card-body custom-text">
         <h3 class="card-title text-center"><%= user.username %></h3>
         <p class="card-text">$<%= user.rates %>/hr</p>
-        <p class="card-text ">Orders Completed:</p>
+        <p class="card-text ">Orders Completed:<%= user.slots.where("booked = true").count %></p>
         <p class="card-text"><%= user.profile_content.truncate(40) %></p>
       </div>
 

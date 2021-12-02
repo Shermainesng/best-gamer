@@ -18,7 +18,7 @@
         </div>
         <div>
           <h5 class="card-title title-custom">Orders Completed: </h5>
-          <h6 class="card-subtitle mb-2 text-muted">get number of orders</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><%= @user.slots.where("booked = true").count %></h6>
         </div>
         <div>
           <h5 class="card-title title-custom">Country: </h5>
