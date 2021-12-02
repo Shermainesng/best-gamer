@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
     @order.paid_amount = @order.slot.user.rates * @order.duration
 
     if @order.save!
-      raise
       @order.slot.booked = true
       @order.slot.save
       redirect_to slot_order_path(@slot, @order)
