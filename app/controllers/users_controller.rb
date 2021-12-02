@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
 
 
-    @coach_slots = Slot.by_coach(@user)
+    @coach_slots = Slot.by_user(@user)
     @available_slots = @coach_slots.available
     @available_dates = @available_slots.map { |slot| slot.date }
 

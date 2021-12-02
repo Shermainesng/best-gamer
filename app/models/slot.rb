@@ -5,4 +5,8 @@ class Slot < ApplicationRecord
   scope :available, -> { where(booked: false) }
   scope :by_user, ->(user) { where('user_id= ?', user) }
 
+  def duration
+    (self.end - self.start)/(60*60)
+  end
+
 end
