@@ -35,6 +35,9 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="container-profile d-flex align-items-center">
   <div class="card my-3">
     <div class="card-header header-custom">
       About <%= @user.username %>
@@ -45,13 +48,19 @@
       </blockquote>
     </div>
   </div>
+
+  <div class='user-vid'>
+    <iframe width="400" height="260" src="https://www.youtube.com/embed/fTRFFLxobKE?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
   <div class="custom-container">
     <div class="calendar">
       <%= month_calendar do |date| %>
         <%= date.mday %>
         <% if @available_dates.include?(date) %>
           <form action="/<%=@user.username%>/<%=date%>">
-            <button type="submit" value="<%=date%>" name="date">View Slots</button>
+            <button type="submit" value="<%=date%>" name="date" class="btn btn-outline-warning btn-sm">View Slots</button>
           </form>
         <% end %>
         <% if user_signed_in? && @booked_dates.include?(date) %>
@@ -76,4 +85,3 @@
       </ul>
     </div>
   </div>
-</div>
