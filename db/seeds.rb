@@ -19,7 +19,7 @@ games.each do |game|
       last_name: Faker::Name.last_name,
       country: ["Singapore", "China", "England", "USA"].sample,
       skype_discord: Faker::FunnyName.two_word_name,
-      profile_picture: Faker::Avatar.image,
+      profile_picture: Faker::Avatar.image(size: "200x200"),
       receive_email: true,
       on_vacation: false,
       rates: rand(10..100),
