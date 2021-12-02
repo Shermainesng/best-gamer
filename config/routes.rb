@@ -3,16 +3,15 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'coaches', to: 'users#index'
-
   get '/:username', to: 'users#show'
-
 
   resources :slots, only: [:show] do
     resources :orders, only: [:new, :create, :show]
+    resources :reviews, only: [:new, :create]
     get 'confirmed', to: 'orders#confirmed'
-
   end
 
+  # get 'orders/:order_id/reviews/new', to: 'reviews#new', as: :review_new
+  # post 'orders/:order_id/reviews', to: 'reviews#create'
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

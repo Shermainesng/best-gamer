@@ -13,5 +13,6 @@ class UsersController < ApplicationController
     @available_slots = Slot.by_user(@user).available
     @available_dates = @available_slots.map { |slot| slot.date }
     @order = Order.new
+    @reviews = @user.reviews
   end
 end
