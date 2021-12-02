@@ -1,9 +1,10 @@
 .padding-zero {
   padding-left: 0;
-  padding-right:0;;
+  padding-right:0;
 }
+
 .home-background-image {
-  background-image: url("https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"); /* The image used */
+  background-image: radial-gradient(ellipse,rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, .9) 90%),url("https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"); /* The image used */
   background-color: #cccccc; /* Used if the image is unavailable */
   height: 660px; /* You must set a specified height */
   background-position: center; /* Center the image */
