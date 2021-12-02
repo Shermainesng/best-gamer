@@ -60,7 +60,7 @@
         <%= date.mday %>
         <% if @available_dates.include?(date) %>
           <form action="/<%=@user.username%>/<%=date%>">
-            <button type="submit" value="<%=date%>" name="date">View Slots</button>
+            <button type="submit" value="<%=date%>" name="date" class="btn btn-outline-warning btn-sm">View Slots</button>
           </form>
         <% end %>
         <% if user_signed_in? && @booked_dates.include?(date) %>
