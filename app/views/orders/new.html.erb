@@ -9,7 +9,8 @@
   </div>
   <div class="container m-2 border p-3">
     <p>YOUR DETAILS</p>
-      <form action=<%=slot_orders_path(@order.slot)%> method="post">
+
+
       <div class="form-group">
         <label for="exampleFormControlSelect1">CURRENCY</label>
         <select class="form-control" id="exampleFormControlSelect1">
@@ -25,9 +26,10 @@
           <p>YOUR TOTAL</p>
           <h3><%= humanized_money_with_symbol(@order.paid_amount) %></h3>
         </div>
-        <input type="hidden" value=<%=@order%>>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
       </div>
-    </form>
+    <%=simple_form_for([@slot,@order]) do |f|%>
+      <%=f.submit%>
+      <% end %>
   </div>
 </div>

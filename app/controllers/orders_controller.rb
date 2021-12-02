@@ -9,12 +9,11 @@ class OrdersController < ApplicationController
   end
 
   def create
-    raise
     @slot = Slot.find(params[:slot_id])
-    @order = Order.new(order_params)
+    @order = Order.new
     @order.slot = @slot
     @order.user = current_user
-    @order.paid_amount = @order.slot.user.rates * @order.duration
+    @order.paid_amount = @slot.user.rates * @slot.duration
 
     if @order.save!
       @order.slot.booked = true
