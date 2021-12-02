@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'coaches', to: 'users#index'
+
+  get 'all_orders', to: "orders#index"
+
   get '/:username', to: 'users#show'
 
   resources :slots, only: [:show] do
