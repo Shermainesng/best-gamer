@@ -16,6 +16,7 @@ $success:    $green;
 $info:       grey;
 $danger:     $red;
 $warning:    $orange;
+$dark: rgb(27, 26, 26);
 
 // Buttons & inputs' radius
 $border-radius:    2px;
@@ -23,3 +24,10 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+// $h1-font-size:                $font-size-base * 2.5 !default;
+// $h2-font-size:                $font-size-base * 2 !default;
+// $h3-font-size:                $font-size-base * 1.75 !default;
+// $h4-font-size:                $font-size-base * 1.5 !default;
+// $h5-font-size:                $font-size-base * 1.25 !default;
+// $h6-font-size:                $font-size-base !default;
+$enable-gradients: true;

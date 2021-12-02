@@ -3,35 +3,39 @@
   <h3 class='text-center'>Become the BEST gamer in <%= params[:filter_game] %>. Get coaching to reach the next level!</p>
 </div>
 
-<div class='container mt-5'>
-  <form action="#" method="get" class="text-center">
-    <input name="filter_game" type="hidden" value="<%= params[:filter_game] %>" />
-    <div class="row">
-      <div class="col-3">
-        <label for="filter_username">Type in your coach name</label>
-        <input type="text" class="form-control" name="filter_username" placeholder="e.g. Milo" value="<%= params[:filter_username]%>">
+<div class="bg-gradient-dark h-25 py-2" style="">
+  <div class='container mt-5'>
+    <form action="#" method="get" class="text-center">
+      <input name="filter_game" type="hidden" value="<%= params[:filter_game] %>" />
+      <div class="row">
+        <div class="col-3">
+          <label for="filter_username">Type in your coach name</label>
+          <input type="text" class="form-control" name="filter_username" placeholder="e.g. Milo" value="<%= params[:filter_username]%>">
+        </div>
+        <div class="col-3">
+          <label for="filter_country">Country</label>
+          <input type="text" class="form-control" name="filter_country" placeholder="e.g. Singapore" value="<%= params[:filter_country]%>">
+        </div>
+        <div class="col-3">
+          <label for="filter_price[min_price]">Min price</label>
+          <input type="number" class="form-control" name="filter_price[min_price]" value="<%= params[:filter_price["min_price"]]%>">
+        </div>
+        <div class="col-3">
+          <label for="filter_price[max_price]">Max price</label>
+          <input type="number" class="form-control" name="filter_price[max_price]" value="<%= params[:filter_price["max_price"]]%>">
+        </div>
       </div>
-      <div class="col-3">
-        <label for="filter_country">Country</label>
-        <input type="text" class="form-control" name="filter_country" placeholder="e.g. Singapore" value="<%= params[:filter_country]%>">
+      <div class='btn mt-3'>
+        <input type="submit" value="Find your coach!" class="btn btn-primary btn-lg">
       </div>
-      <div class="col-3">
-        <label for="filter_price[min_price]">Min price</label>
-        <input type="number" class="form-control" name="filter_price[min_price]" value="<%= params[:filter_price["min_price"]]%>">
-      </div>
-      <div class="col-3">
-        <label for="filter_price[max_price]">Max price</label>
-        <input type="number" class="form-control" name="filter_price[max_price]" value="<%= params[:filter_price["max_price"]]%>">
-      </div>
-    </div>
-    <div class='btn mt-3'>
-      <input type="submit" value="Find your coach!" class="btn btn-outline-warning btn-lg">
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 
 <div class="container mt-4">
-  <div class="row">
-    <%= render @users %>
+  <div class="card-deck">
+    <div class="row">
+      <%= render @users %>
+    </div>
   </div>
 </div>

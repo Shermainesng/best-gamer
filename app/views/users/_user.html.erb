@@ -1,4 +1,5 @@
 <div class="col-3">
+  <div class="my-3">
     <div class="card h-100 mb-3">
 
     <%= link_to "/#{user.username.gsub(" ","")}" do %>
@@ -9,12 +10,12 @@
         <h3 class="card-title text-center"><%= user.username %></h3>
         <p class="card-text">$<%= user.rates %>/hr</p>
         <p class="card-text ">Orders Completed:<%= user.slots.where("booked = true").count %></p>
-        <p class="card-text"><%= user.profile_content.truncate(40) %></p>
       </div>
 
       <div class="btn-margin">
-        <a class="btn btn-outline-warning btn-center-custom" href=<%="/#{user.username.gsub(" ","")}"%> class="btn btn-primary">Find out more</a>
+        <a class="btn btn-primary btn-center-custom" href=<%="/#{user.username.gsub(" ","")}"%> class="btn btn-primary">Find out more</a>
       </div>
     <% end %>
+  </div>
   </div>
 </div>
