@@ -50,9 +50,11 @@
 
 <div>
   <%= month_calendar do |date| %>
-    <%= date %>
+    <%= date.mday %>
     <% if @available_dates.include?(date) %>
-      <%= link_to "Available", new_slot_order_path(Slot.by_user(@user).find_by(date: date)), class: "btn btn-dark" %>
+      <form action="/<%=@user.username%>/<%=date%>">
+        <button type="submit" value="<%=date%>" name="date">View Slots</button>
+      </form>
     <% end %>
     <% if user_signed_in? && @booked_dates.include?(date) %>
       <p>Booked</p>
