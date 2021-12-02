@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    raise
     @slot = Slot.find(params[:slot_id])
     @order = Order.new(order_params)
     @order.slot = @slot
@@ -36,6 +37,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:duration, :slot_id)
+    params.require(:order).permit(:slot_id)
   end
 end
