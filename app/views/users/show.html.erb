@@ -13,22 +13,38 @@
       <div class="card text-center" style="width: 18rem;">
         <div class="card-body">
           <div>
-            <h5 class="card-title">Coach Since: </h5>
+            <h5 class="card-title title-custom">Coach Since: </h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= @user.coach_since %></h6>
         </div>
         <div>
-          <h5 class="card-title">Country: </h5>
+          <h5 class="card-title title-custom">Orders Completed: </h5>
+          <h6 class="card-subtitle mb-2 text-muted">get number of orders</h6>
+        </div>
+        <div>
+          <h5 class="card-title title-custom">Country: </h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= @user.country %></h6>
-      </div>
-      <div>
-      <h5 class="card-title">Games: </h5>
-      <h6 class="card-subtitle mb-2 text-muted">
-        <% @user.games.each do |game| %>
-          <%= game.name %><br>
-        <% end %>
-        </h6>
+        </div>
+        <div>
+          <h5 class="card-title title-custom">Games: </h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <% @user.games.each do |game| %>
+              <%= game.name %><br>
+            <% end %>
+          </h6>
+        </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="card my-3">
+  <div class="card-header header-custom">
+    About <%= @user.username %>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0 content-custom">
+      <p><%= @user.profile_content %><%= @user.profile_content %><%= @user.profile_content %></p>
+    </blockquote>
   </div>
 </div>
 
