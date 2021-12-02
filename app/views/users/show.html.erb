@@ -38,8 +38,7 @@
     <% if @available_dates.include?(date) %>
       <%= link_to "Available", new_slot_order_path(Slot.by_user(@user).find_by(date: date)), class: "btn btn-dark" %>
     <% end %>
-
-    <% if @dates_booked_by_current_user.include?(date) %>
+    <% if user_signed_in? && @booked_dates.include?(date) %>
       <p>Booked</p>
     <% end %>
   <% end %>

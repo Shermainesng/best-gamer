@@ -9,17 +9,26 @@ class UsersController < ApplicationController
   end
 
   def show
-    @coach = User.find_by(username: params[:username])
-    @current_user = current_user
+    @user = User.find_by(username: params[:username])
 
-    @coach_slots = Slot.by_user(@coach)
+
+    @coach_slots = Slot.by_user(@user)
     @available_slots = @coach_slots.available
     @available_dates = @available_slots.map { |slot| slot.date }
 
-    @slots_booked_by_current_user = @current_user.orders.map do |order|
-      order.slot if order.slot.user == @coach
+    # check if user is signed in
+
+    @booked_dates = get_booked_dates(current_user) if user_signed_in?
+  end
+
+  def get_booked_dates(user)
+    # get all the coach's slots booked by the user
+
+    slots_booked_by_current_user = current_user.booked_slots do |slot|
+      slot if slot.user == @user
     end
 
-    @dates_booked_by_current_user = @slots_booked_by_current_user.map { |slot| slot.date }
+    slots_booked_by_current_user.map { |slot| slot.date }
+
   end
 end

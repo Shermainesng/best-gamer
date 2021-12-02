@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :games, through: :coach_games
   has_many :slots
   has_many :orders
+  has_many :booked_slots, through: :orders, source: :slot
   has_many :reviews, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true, format: { with: /\w+(\.\w+)?@\w+.\w{2,3}/ }
@@ -19,5 +20,4 @@ class User < ApplicationRecord
   scope :filter_country, -> given_country { where("country ILIKE ?", given_country) }
   scope :filter_price, -> min_price, max_price { where("rates >= ? AND rates <= ?", min_price, max_price) }
   scope :filter_game, -> (given_game) { joins(:games).where(games: {name: given_game}) }
-
 end
