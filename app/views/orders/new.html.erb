@@ -1,12 +1,10 @@
-<h1>Checkout</h1>
-
 <h1 class="text-center">Checkout</h1>
 <div class="container d-flex">
   <div class="container m-2 border p-3">
     <p>YOUR ORDER</p>
-    <div class="container">
+    <div class="container d-flex align-items-center">
       <img src=<%=@order.slot.user.profile_picture%> alt="", style="width:200px;">
-      <%= @slot.start %> to <%= @slot.end %> with <%= @order.slot.user.username %>
+      <%= @slot.start.strftime("%l:%M %p") %> to <%= @slot.end.strftime("%l:%M %p") %> with <%= @order.slot.user.username %>
     </div>
   </div>
   <div class="container m-2 border p-3">

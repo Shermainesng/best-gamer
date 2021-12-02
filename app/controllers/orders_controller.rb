@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.slot = Slot.find(params[:slot_id].to_i)
     @slot = @order.slot
+    @order.paid_amount = @slot.duration * @slot.user.rates
   end
 
   def create
