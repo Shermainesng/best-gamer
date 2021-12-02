@@ -1,14 +1,49 @@
-<div class='home-background-image'>
-  <h2 class="text-center">I want to go pro in</h2>
-  <form action="/coaches">
-    <div class="form-custom">
-      <div>
-        <select name="filter_game", class="form-content">
-          <% @games.all.each do |game| %>
-            <option value="<%= game.name %>", class="dropdown-content"><%= game.name %></option>
-          <% end %>
-        </select>
+<div class='container-fluid padding-zero'>
+  <div class='home-background-image'>
+    <h2 class="text-center">I want to go pro in</h2>
+    <form action="/coaches">
+      <div class="form-custom">
+        <div>
+          <select name="filter_game", class="form-content">
+            <% @games.all.each do |game| %>
+              <option value="<%= game.name %>", class="dropdown-content"><%= game.name %></option>
+            <% end %>
+          </select>
+        </div>
+        <input type="submit", class="btn-primary submit-btn", value="Find your coach">
       </div>
-      <input type="submit", class="btn-primary submit-btn", value="Find your coach">
-  </form>
+    </form>
+  </div>
+</div>
+
+<div class='container row align-items-center'>
+  <div class='home-cards col-sm-4'>
+    <div class='card-home'>
+      <i class="fas fa-gamepad"></i>
+      <div class='card-home-body'>
+        <h3>Pick Your Game</h3>
+        <p>We provide coaching lessons for the most popular online games by the best coaches available.</p>
+      </div>
+    </div>
+
+    <div class='card-home'>
+      <i class="fas fa-chalkboard-teacher"></i>
+      <div class='card-home-body'>
+        <h3>Find your coach</h3>
+        <p>With the help of our carefully engineered algorithm, we make it easy for you to find your perfect coach.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class='img-arrow col-sm-4'>
+    <i class="fas fa-angle-double-right"></i>
+  </div>
+
+  <div class='card-home col-sm-4'>
+    <i class="fas fa-trophy"></i>
+    <div class='card-home-body'>
+      <h3>Become A Pro</h3>
+      <p>Start your lessons with our coach to begin reaching your in-game goals and become a professional player.</p>
+    </div>
+  </div>
 </div>

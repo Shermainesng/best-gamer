@@ -1,7 +1,11 @@
+.padding-zero {
+  padding-left: 0;
+  padding-right:0;;
+}
 .home-background-image {
   background-image: url("https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"); /* The image used */
   background-color: #cccccc; /* Used if the image is unavailable */
-  height: 460px; /* You must set a specified height */
+  height: 660px; /* You must set a specified height */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
@@ -38,4 +42,23 @@
 
 h2 {
   color: white;
+}
+
+.container {
+  margin-left:50px;
+}
+.home-cards {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.card-home i {
+  font-size:100px;
+  margin-bottom: 20px;
+}
+.card-home {
+  margin-bottom:60px;
+}
+.img-arrow {
+  font-size:100px;
+  text-align: center;
 }
