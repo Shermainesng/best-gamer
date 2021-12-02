@@ -1,9 +1,9 @@
 <div class="col-3 my-3">
-    <div class="card bg-custom h-100">
+    <div class="card h-100">
 
     <%= link_to "/#{user.username.gsub(" ","")}" do %>
 
-      <%= image_tag(user.profile_picture, class: "d-block mx-auto") %>
+      <%= image_tag(user.profile_picture, class:"img-margin") %>
 
       <div class="card-body custom-text">
         <h3 class="card-title text-center"><%= user.username %></h3>
@@ -13,7 +13,7 @@
       </div>
 
       <div class="btn-margin">
-        <a class="btn btn-dark btn-center-custom" href=<%="/#{user.username.gsub(" ","")}"%> class="btn btn-primary">Find out more</a>
+        <a class="btn btn-outline-warning btn-center-custom" href=<%="/#{user.username.gsub(" ","")}"%> class="btn btn-primary">Find out more</a>
       </div>
     <% end %>
   </div>
