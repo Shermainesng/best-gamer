@@ -1,7 +1,11 @@
-<h1>Review your coach</h1>
+<div class="container">
+  <h1>Review <%= @slot.user.username %></h1>
+  <p>Session date: <%= @slot.date %></p>
 
-<%= simple_form_for [@slot, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating, collection: 1..10 %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for [@slot, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating, collection: 1..10 %>
+    <%= f.button :submit, "Submit", class: 'btn btn-primary' %>
+
+  <% end %>
+</div>
