@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :games, through: :coach_games
   has_many :slots
   has_many :orders
+  has_many :reviews, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true, format: { with: /\w+(\.\w+)?@\w+.\w{2,3}/ }
   validates :password, presence: true
