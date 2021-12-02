@@ -12,9 +12,10 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
 
 
-    @coach_slots = Slot.by_user(@user)
+    @coach_slots = Slot.by_coach(@user)
     @available_slots = @coach_slots.available
     @available_dates = @available_slots.map { |slot| slot.date }
+
     @reviews = @user.reviews
     @reviews_count = @reviews.count.to_f
     @avg_rating = (@reviews.sum(&:rating)/@reviews_count).round(2)
@@ -26,12 +27,13 @@ class UsersController < ApplicationController
 
   def get_booked_dates(user)
     # get all the coach's slots booked by the user
-
     slots_booked_by_current_user = current_user.booked_slots do |slot|
       slot if slot.user == @user
     end
 
     slots_booked_by_current_user.map { |slot| slot.date }
+
+
   end
 
   def slots_date

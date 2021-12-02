@@ -1,21 +1,35 @@
 <h1>Checkout</h1>
-<div class="d-flex container">
-  <div id="order-details">
-  </div>
-  <div id="payment">
-  </div>
-</div>
 
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <h3>Make a booking with <%= @slot.user.username %> on <%= @slot.date %></h3>
-        <%= simple_form_for [@slot, @order], url: slot_orders_path do |f| %>
-          <%= f.input :duration, collection: 1..10 %>
-          <%= f.submit class: 'btn btn-primary' %>
-        <% end %>
-      </div>
+<h1 class="text-center">Checkout</h1>
+<div class="container d-flex">
+  <div class="container m-2 border p-3">
+    <p>YOUR ORDER</p>
+    <div class="container">
+      <img src=<%=@order.slot.user.profile_picture%> alt="", style="width:200px;">
+      <%= @slot.start %> to <%= @slot.end %> with <%= @order.slot.user.username %>
     </div>
+  </div>
+  <div class="container m-2 border p-3">
+    <p>YOUR DETAILS</p>
+      <form action=<%=slot_confirmed_path(@order.slot)%> method="get">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">CURRENCY</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>USD</option>
+          <option>SGD</option>
+          <option>RMB</option>
+          <option>AUD</option>
+          <option>CAD</option>
+        </select>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="amount">
+          <p>YOUR TOTAL</p>
+          <h3><%= humanized_money_with_symbol(@order.paid_amount) %></h3>
+        </div>
+        <input type="hidden" value=<%=@order%>>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
   </div>
 </div>
