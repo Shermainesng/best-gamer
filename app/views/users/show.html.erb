@@ -10,21 +10,21 @@
       </div>
     </div>
     <div class="col-4 d-flex align-items-center">
-      <div class="card text-center" style="width: 18rem;">
+      <div class="card text-left" style="width: 18rem;">
         <div class="card-body">
-          <div>
+          <div class="my-3">
             <h5 class="card-title title-custom">Coach Since: </h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= @user.coach_since %></h6>
-        </div>
-        <div>
-          <h5 class="card-title title-custom">Orders Completed: </h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= @user.slots.where("booked = true").count %></h6>
-        </div>
-        <div>
-          <h5 class="card-title title-custom">Country: </h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= @user.country %></h6>
-        </div>
-        <div>
+          </div>
+          <div class="my-3">
+            <h5 class="card-title title-custom">Orders Completed: </h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @user.slots.where("booked = true").count %></h6>
+          </div>
+          <div class="my-3">
+            <h5 class="card-title title-custom">Country: </h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @user.country %></h6>
+          </div>
+        <div class="my-3">
           <h5 class="card-title title-custom">Games: </h5>
           <h6 class="card-subtitle mb-2 text-muted">
             <% @user.games.each do |game| %>
