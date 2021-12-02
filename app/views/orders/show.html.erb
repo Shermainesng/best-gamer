@@ -24,7 +24,7 @@
       <div class="d-flex justify-content-between">
         <div class="amount">
           <p>YOUR TOTAL</p>
-          <h3><%= @order.duration * @order.slot.user.rates %></h3>
+          <h3><%= humanized_money_with_symbol(@order.paid_amount) %></h3>
         </div>
         <input type="hidden" value=<%=@order%>>
         <button type="submit" class="btn btn-primary">Submit</button>
