@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'coaches', to: 'users#index'
+  get 'all_orders', to: "orders#index"
 
   get '/:username', to: 'users#show'
 
@@ -10,8 +11,8 @@ Rails.application.routes.draw do
   resources :slots, only: [:show] do
     resources :orders, only: [:new, :create, :show]
     get 'confirmed', to: 'orders#confirmed'
-
   end
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
