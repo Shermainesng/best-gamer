@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     @available_slots = @coach_slots.available
     @available_dates = @available_slots.map { |slot| slot.date }
     @reviews = @user.reviews
+    @reviews_count = @reviews.count.to_f
+    @avg_rating = (@reviews.sum(&:rating)/@reviews_count).round(2)
 
     # check if user is signed in
 

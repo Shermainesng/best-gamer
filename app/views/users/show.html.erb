@@ -46,10 +46,11 @@
 
 <div>
   <h2>Reviews</h2>
+  Ratings: <%= @avg_rating %> || Total ratings: <%= @reviews_count %>
   <ul>
     <% @reviews.each do |review| %>
       <li>
-        <%= review.rating %> || <%= review.content %>
+        <%= review.rating %> || <%= review.content %> - <%= review.order.user.username || review.order.user.first_name %>
       </li>
     <% end %>
   </ul>
