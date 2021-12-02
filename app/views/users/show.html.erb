@@ -35,41 +35,43 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="card my-3">
-  <div class="card-header header-custom">
-    About <%= @user.username %>
+  <div class="card my-3">
+    <div class="card-header header-custom">
+      About <%= @user.username %>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0 content-custom">
+        <p><%= @user.profile_content %><%= @user.profile_content %><%= @user.profile_content %></p>
+      </blockquote>
+    </div>
   </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0 content-custom">
-      <p><%= @user.profile_content %><%= @user.profile_content %><%= @user.profile_content %></p>
-    </blockquote>
+  <div class="custom-container">
+    <div class="calendar">
+      <%= month_calendar do |date| %>
+        <%= date %>
+        <% if @available_dates.include?(date) %>
+          <%= link_to "Available", new_slot_order_path(Slot.by_user(@user).find_by(date: date)), class: "btn btn-dark" %>
+        <% end %>
+        <% if user_signed_in? && @booked_dates.include?(date) %>
+          <p>Booked</p>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="custom-review">
+      <div class="review-header">
+        <h3>Customers voice</h3>
+        <p><%= @reviews_count.round() %></p>
+      </div>
+      Ratings: <%= @avg_rating %>
+      <ul class="review-list">
+        <% @reviews.each do |review| %>
+          <li class="review-list-item">
+            <%= review.rating %> stars - <%= review.order.user.username || review.order.user.first_name %>
+            <br>
+            <%= review.content %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
-
-<div>
-  <%= month_calendar do |date| %>
-    <%= date.mday %>
-    <% if @available_dates.include?(date) %>
-      <form action="/<%=@user.username%>/<%=date%>">
-        <button type="submit" value="<%=date%>" name="date">View Slots</button>
-      </form>
-    <% end %>
-    <% if user_signed_in? && @booked_dates.include?(date) %>
-      <p>Booked</p>
-    <% end %>
-  <% end %>
-</div>
-
-<div>
-  <h2>Reviews</h2>
-  Ratings: <%= @avg_rating %> || Total ratings: <%= @reviews_count %>
-  <ul>
-    <% @reviews.each do |review| %>
-      <li>
-        <%= review.rating %> || <%= review.content %> - <%= review.order.user.username || review.order.user.first_name %>
-      </li>
-    <% end %>
-  </ul>
 </div>

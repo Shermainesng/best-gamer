@@ -6,6 +6,9 @@
   padding: 12px 20px 16px 20px;
   cursor: pointer;
 }
+.card a {
+  text-decoration: none !important;
+}
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
@@ -13,20 +16,22 @@
 .custom-text h3 {
   color:orange;
   font-size: 23px;
-  text-decoration: none;
 }
 .custom-text p {
   color: black;
   font-size: 17px;
   text-align: center;
-  text-decoration: none;
 }
 .custom-text .btn-center-custom {
-  text-decoration: none;
   align-content: center;
 }
 .btn-margin {
   margin-bottom: 16px;
   margin-top: auto;
   text-align: center;
+}
+
+.custom-container {
+  display: flex;
+  justify-content: space-between;
 }

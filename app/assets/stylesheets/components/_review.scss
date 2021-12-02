@@ -1,0 +1,32 @@
+.custom-review {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-decoration: none;
+  margin-left: 50px;
+  background-color: #181C23;
+  border-radius: 20px;
+  padding: 20px;
+}
+.review-header {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    font-size: 25px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#F1BB71, #D28544);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.review-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  overflow-y: scroll;
+}
+.review-list-item {
+  margin: 20px 0;
+}
