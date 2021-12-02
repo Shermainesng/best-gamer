@@ -27,13 +27,23 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">My Profile</a>
-            <a class="dropdown-item" href="#">Orders</a>
+            <a class="dropdown-item" href="/all_orders">Orders</a>
             <a class="dropdown-item" href="<%=destroy_user_session_path%>", data-method="delete">Logout</a>
           </div>
         </li>
       <% else %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-nav-item" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Game
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% @games.all.each do |game| %>
+              <a class="dropdown-item" href="/coaches/?filter_game=<%= game.name %>"><%= game.name %></a>
+            <% end %>
+          </div>
+        </li>
         <li class="nav-item ">
-          <%= link_to "Login", new_user_session_path, class: "nav-link custom-nav-item" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link custom-nav-item btn btn-outline-warning" %>
         </li>
       <% end %>
     </ul>

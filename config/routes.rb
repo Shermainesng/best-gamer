@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
   get 'all_orders', to: "orders#index"
 
-  get '/:username', to: 'users#show'
+  get '/:username', to: "users#show"
+  get '/:username/:date', to: "users#slots_date"
 
-  resources :slots, only: [:show] do
+  resources :slots, only: [:show, :index] do
     resources :orders, only: [:new, :create, :show]
     resources :reviews, only: [:new, :create]
     get 'confirmed', to: 'orders#confirmed'
