@@ -6,6 +6,9 @@
     <% if order.status == "confirmed"%>
     <a href="/slots/<%=order.slot_id%>/reviews/new" class="btn btn-outline-light">Review your coach</a>
     <%end%>
+    <% if order.status == "pending"%>
+    <a href="<%=slot_order_path(order.slot, order)%>" class="btn btn-outline-light">Complete your order</a>
+    <%end%>
   </div>
 
 </div>

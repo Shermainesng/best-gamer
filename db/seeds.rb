@@ -12,15 +12,16 @@ games.each do |game|
   })
   puts "#{game} created"
   12.times do
+    username: Faker::Twitter.screen_name
     User.create!({
-      username: Faker::Twitter.screen_name,
+      username: username,
       email: Faker::Internet.email,
       password: '123456',
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       country: ["Singapore", "China", "England", "USA"].sample,
       skype_discord: Faker::FunnyName.two_word_name,
-      profile_picture: Faker::Avatar.image(size: "200x200"),
+      profile_picture: "https://avatars.dicebear.com/api/big-smile/#{username}.svg",
       receive_email: true,
       on_vacation: false,
       rates: rand(10..100),
