@@ -12,13 +12,13 @@
         <p class="card-text ">Orders Completed: <%= user.slots.where("booked = true").count %></p>
       </div>
 
-      <div>
+      <div class='ratings-stars text-center mb-2'>
         <% if (user.reviews.length) > 0 %>
           <% (((user.reviews.map(&:rating).reduce(:+)).to_i)/(user.reviews.length)).times do %>
             <i class="fas fa-star star-yellow"></i>
           <% end %>
         <% else %>
-          Be the first to review!
+          <p class="text-center text-light">Be the first to review!</p>
         <% end %>
       </div>
 

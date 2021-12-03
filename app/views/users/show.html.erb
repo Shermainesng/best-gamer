@@ -81,9 +81,9 @@
         <p><%= @reviews_count.round() %></p>
       </div>
       <% if (!@avg_rating.nil?) && (@avg_rating > 0) %>
-        <ul class="d-inline-block">
-          <li class="review-list-item">
-            <% @avg_rating.times do %>
+        <ul class="d-inline-block list-style">
+          <li class="review-list-item list">
+            Average Rating: <% @avg_rating.times do %>
               <i class="fas fa-star star-yellow"></i>
             <% end %>
           </li>
