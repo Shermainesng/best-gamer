@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
     @order.slot = @slot
     @order.user = current_user
     @order.paid_amount = @slot.user.rates * @slot.duration
+    @order.status = "pending"
 
     if @order.save!
       @order.slot.booked = true
@@ -32,6 +33,12 @@ class OrdersController < ApplicationController
     @orders = current_user.orders
   end
 
+  def confirmed
+    @slot = Slot.find(params[:slot_id])
+    @order = @slot.order
+    @order.status = "confirmed"
+    @order.save!
+  end
 
   private
 

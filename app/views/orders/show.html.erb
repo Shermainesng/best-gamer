@@ -1,34 +1,23 @@
 
-<h1 class="text-center">Checkout</h1>
-<div class="container d-flex">
+<h1 class="text-center">Confirm your order</h1>
+<div class="container">
   <div class="container m-2 border p-3">
     <p>YOUR ORDER</p>
     <div class="container">
       <img src=<%=@order.slot.user.profile_picture%> alt="", style="width:200px;">
-      <%= @order.slot.duration %> hour(s) with <%= @order.slot.user.username %>
+
+
+      <%= pluralize @order.slot.duration, "hour" %> with <%= @order.slot.user.username %>
     </div>
   </div>
   <div class="container m-2 border p-3">
-    <p>YOUR DETAILS</p>
-      <form action=<%=slot_confirmed_path(@order.slot)%> method="get">
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">CURRENCY</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>USD</option>
-          <option>SGD</option>
-          <option>RMB</option>
-          <option>AUD</option>
-          <option>CAD</option>
-        </select>
-      </div>
       <div class="d-flex justify-content-between">
         <div class="amount">
           <p>YOUR TOTAL</p>
           <h3><%= humanized_money_with_symbol(@order.paid_amount) %></h3>
         </div>
         <input type="hidden" value=<%=@order%>>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="<%=slot_confirmed_path(@order.slot)%>"  class="btn btn-primary my-auto rounded-pill"> Confirm Your Order </a>
       </div>
-    </form>
   </div>
 </div>
