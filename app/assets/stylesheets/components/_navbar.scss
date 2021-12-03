@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  padding: 15px;
-  background-color: black;
+  padding: 0px;
+  background: radial-gradient(ellipse at right top, #030338c5 50%, #000000 90%);
   position: sticky;
   width: 100%;
   top: 0;
@@ -21,6 +21,6 @@
 }
 
 .img-size {
-  width: 70px !important;
+  width: 65px !important;
   height: auto;
 }
