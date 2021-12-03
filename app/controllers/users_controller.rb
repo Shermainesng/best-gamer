@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     @reviews = @user.reviews
     @reviews_count = @reviews.count.to_f
-    @avg_rating = @reviews.average("rating") unless @reviews.empty?
+    @avg_rating = @reviews.average("rating").to_i unless @reviews.empty?
 
     # @avg_rating = (@reviews.sum(&:rating)/@reviews_count).to_i
     # check if user is signed in
