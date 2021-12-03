@@ -60,13 +60,14 @@
         <%= date.mday %>
         <% if @available_dates.include?(date) %>
           <form action="/<%=@user.username%>/<%=date%>" class="text-center my-1">
-            <button type="submit" value="<%=date%>" name="date" class="btn btn-outline-light btn-sm">View Slots</button>
+            <button type="submit" value="<%=date%>" name="date" class="btn btn-outline-light btn-sm"><%= pluralize @available_slots.by_date(date).count, 'slot' %></button>
           </form>
         <% end %>
         <% if user_signed_in? && @booked_dates.include?(date) %>
           <p class="text-center my-1 font-weight-bolder">Booked</p>
         <% end %>
       <% end %>
+
     </div>
     <div class="custom-review">
       <div class="review-header">
