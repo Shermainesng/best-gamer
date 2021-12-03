@@ -15,11 +15,11 @@ class UsersController < ApplicationController
     @coach_slots = Slot.by_user(@user)
     @available_slots = @coach_slots.available
     @available_dates = @available_slots.map { |slot| slot.date }
+    @reviews_count = @user.reviews.count.to_f
 
-    unless @user.reviews.nil?
+    unless @reviews_count.zero?
+      @avg_rating = @user.reviews.average("rating").to_i
       @reviews = @user.reviews
-      @reviews_count = @reviews.count.to_f
-      @avg_rating = @reviews.average("rating").to_i
     end
     @booked_dates = get_booked_dates(current_user) if user_signed_in?
   end
