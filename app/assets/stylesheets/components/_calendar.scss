@@ -1,3 +1,39 @@
 .calendar {
   width: 70%;
 }
+
+.simple-calendar {
+  .day {
+    border: 1px solid rgba(211, 211, 211, 0.2);
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background: #444ce877;
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+    background-color: rgba(211,211,211,0.2);
+  }
+  .next-month {
+    background-color: rgba(211,211,211,0.2);
+  }
+  .current-month {}
+
+  .has-events {}
+
+  .table thead th {
+    border: 1px solid rgba(211, 211, 211, 0.2);
+  }
+}
