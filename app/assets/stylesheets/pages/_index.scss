@@ -9,21 +9,22 @@ h1 {
   font-weight: 600;
 }
 
-h2 {
-    font-size: 16px;
-
+.header-para{
+    font-size: 20px;
 }
 .col-3 input {
   border-radius: 20px;
   background: #2b2b2c;
   margin-top: 8px;
   }
-
+.mt-3 input {
+  border-radius:30px;
+}
 .form-wrapper {
-  background: #131314;
-  border-radius: 20px;
+  background: radial-gradient(ellipse at right top, #030338c5 50%, #000000 90%);
+  border-radius: 30px;
 }
 
 .wrapper {
-  background: linear-gradient(#0303388a 40%,#000000 90%);
+  background: linear-gradient(to left,#4F56CF, #0A0E40);
 }
