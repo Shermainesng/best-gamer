@@ -97,7 +97,6 @@
           <li class="review-list-item">
             <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small><br>
             <%= review.rating %>/5 - <%= review.order.user.username || review.order.user.first_name %>
-            <%= raise %>
             <br>
             <%= review.content %>
           </li>
