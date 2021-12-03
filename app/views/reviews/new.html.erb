@@ -4,7 +4,7 @@
 
   <%= simple_form_for [@slot, @review] do |f| %>
     <%= f.input :content %>
-    <%= f.input :rating, collection: 1..10 %>
+    <%= f.input :rating, collection: 1..5 %>
     <%= f.button :submit, "Submit", class: 'btn btn-primary' %>
 
   <% end %>

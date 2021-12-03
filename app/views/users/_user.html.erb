@@ -12,6 +12,16 @@
         <p class="card-text ">Orders Completed: <%= user.slots.where("booked = true").count %></p>
       </div>
 
+      <div>
+        <% if (user.reviews.length) > 0 %>
+          <%= (((user.reviews.map(&:rating).reduce(:+)).to_i)/(user.reviews.length)).times do %>
+            <i class="fas fa-star star-yellow"></i>
+          <% end %>
+        <% else %>
+          Be the first to review!
+        <% end %>
+      </div>
+
       <div class="btn-margin">
         <a class="btn btn-primary btn-center-custom" href=<%="/#{user.username.gsub(" ","")}"%> class="btn btn-primary">Find out more</a>
       </div>
