@@ -59,12 +59,12 @@
       <%= month_calendar do |date| %>
         <%= date.mday %>
         <% if @available_dates.include?(date) %>
-          <form action="/<%=@user.username%>/<%=date%>">
-            <button type="submit" value="<%=date%>" name="date" class="btn btn-outline-warning btn-sm">View Slots</button>
+          <form action="/<%=@user.username%>/<%=date%>" class="text-center my-1">
+            <button type="submit" value="<%=date%>" name="date" class="btn btn-outline-light btn-sm">View Slots</button>
           </form>
         <% end %>
         <% if user_signed_in? && @booked_dates.include?(date) %>
-          <p>Booked</p>
+          <p class="text-center my-1 font-weight-bolder">Booked</p>
         <% end %>
       <% end %>
     </div>
@@ -84,4 +84,6 @@
         <% end %>
       </ul>
     </div>
+  </div>
+  <div style="min-height: 400px;">
   </div>
