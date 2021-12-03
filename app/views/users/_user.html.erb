@@ -14,7 +14,7 @@
 
       <div>
         <% if (user.reviews.length) > 0 %>
-          <%= (((user.reviews.map(&:rating).reduce(:+)).to_i)/(user.reviews.length)).times do %>
+          <% (((user.reviews.map(&:rating).reduce(:+)).to_i)/(user.reviews.length)).times do %>
             <i class="fas fa-star star-yellow"></i>
           <% end %>
         <% else %>

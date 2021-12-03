@@ -73,7 +73,17 @@
         <h3>Customers voice</h3>
         <p><%= @reviews_count.round() %></p>
       </div>
-      Ratings: <%= @avg_rating %>
+      Ratings:
+      <li class="review-list-item">
+        <% if @avg_rating > 0 %>
+          <% @avg_rating.times do %>
+            <i class="fas fa-star star-yellow"></i>
+          <% end %>
+        <% else %>
+          Be the first to review!
+        <% end %>
+      </li>
+
       <ul class="review-list">
         <% @reviews.each do |review| %>
           <li class="review-list-item">
