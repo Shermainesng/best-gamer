@@ -18,9 +18,7 @@ class UsersController < ApplicationController
 
     @reviews = @user.reviews
     @reviews_count = @reviews.count.to_f
-    @avg_rating = (@reviews.sum(&:rating)/@reviews_count).round(2)
-    @avg_rating = 0 if @avg_rating.nan?
-
+    @avg_rating = (@reviews.sum(&:rating)/@reviews_count).to_i
     # check if user is signed in
 
     @booked_dates = get_booked_dates(current_user) if user_signed_in?
