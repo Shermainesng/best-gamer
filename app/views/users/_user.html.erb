@@ -1,15 +1,15 @@
-<div class="col-3">
+<div class="col-4">
   <div class="my-3">
     <div class="card h-100 mb-3">
 
     <%= link_to "/#{user.username.gsub(" ","")}" do %>
 
-      <%= image_tag(user.profile_picture, class:"img-margin") %>
+      <%= image_tag(user.profile_picture, class:"d-block mx-auto") %>
 
       <div class="card-body custom-text">
         <h3 class="card-title text-center"><%= user.username %></h3>
-        <p class="card-text">$<%= user.rates %>/hr</p>
-        <p class="card-text ">Orders Completed:<%= user.slots.where("booked = true").count %></p>
+        <p class="card-text font-weight-bold">$<%= user.rates %>/hr</p>
+        <p class="card-text ">Orders Completed: <%= user.slots.where("booked = true").count %></p>
       </div>
 
       <div class="btn-margin">
