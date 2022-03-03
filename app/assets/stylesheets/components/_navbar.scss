@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  padding: 15px;
+  padding: 0px;
+  background: radial-gradient(ellipse at right top, #030338c5 50%, #000000 90%);
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 2;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,4 +18,11 @@
 
 .custom-nav-item {
   color: white !important;
+}
+
+.img-size {
+
+  width: 65px !important;
+
+  height: auto;
 }
