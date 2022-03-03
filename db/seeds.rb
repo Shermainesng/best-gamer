@@ -1,8 +1,10 @@
-puts 'Creating games'
-
+puts "clearing seeds"
+Order.destroy_all
 Slot.destroy_all
 Game.destroy_all
 User.destroy_all
+puts 'Creating games'
+
 
 games = ['League of Legends', 'Valorant', "Dota 2", "Fortnite"]
 games.each do |game|
