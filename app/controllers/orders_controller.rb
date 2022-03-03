@@ -17,12 +17,26 @@ class OrdersController < ApplicationController
     @order.status = "pending"
 
     if @order.save!
-      @order.slot.booked = true
-      @order.slot.save
-      redirect_to slot_order_path(@slot, @order)
-    else
-      render :new
-    end
+      @session = Stripe::Checkout::Session.create({
+        line_items: [{
+          # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: "session with #{@slot.user.username}"
+            },
+            unit_amount: @slot.user.rates * @slot.duration.to_i * 100
+          },
+          quantity: 1
+        }],
+        mode: 'payment',
+        success_url: "#{root_url}success.html",
+        cancel_url: "#{root_url}cancel.html"
+      })
+      redirect_to @session.url
+      else
+        render :new
+      end
   end
 
   def show
