@@ -3,6 +3,7 @@ puts 'Creating games'
 Slot.destroy_all
 Game.destroy_all
 User.destroy_all
+Review.destroy_all
 
 games = ['League of Legends', 'Valorant', "Dota 2", "Fortnite"]
 games.each do |game|

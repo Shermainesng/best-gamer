@@ -80,7 +80,7 @@
         <h3>Customers voice</h3>
         <p><%= @reviews_count.round() %></p>
       </div>
-      <% if (!@avg_rating.nil?) && (@avg_rating > 0) %>
+      <% if (!@reviews_count.zero?) %>
         <ul class="d-inline-block list-style">
           <li class="review-list-item list">
             Average Rating: <% @avg_rating.times do %>
@@ -91,15 +91,20 @@
       <% else %>
         <p class="text-center">No reviews <em>yet</em>. Be the first to review!</p>
       <% end %>
-
+      <% if (!@reviews_count.zero?) %>
       <ul class="review-list ">
         <% @reviews.each do |review| %>
           <li class="review-list-item">
-            <%= review.rating %> stars - <%= review.order.user.username || review.order.user.first_name %>
+            <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small><br>
+            <% review.rating.times do %>
+              <i class="fas fa-star star-yellow"></i>
+            <% end %>
+            <%= review.order.user.username%>
             <br>
             <%= review.content %>
           </li>
         <% end %>
+      <% end %>
       </ul>
     </div>
   </div>

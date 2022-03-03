@@ -1,10 +1,14 @@
 <div class="card w-100 bg-secondary my-2">
   <div class="card-body">
     <h5 class="card-title">Order id #<%= order.id %>: Session with <%= order.slot.user.username %></h5>
-    <p class="card-text text-left"><%= order.slot.duration %> hours on <strong><%= order.slot.date %></strong></p>
-    <h6 class="card-subtitle mb-2 text-muted"></h6>
-    <%if order.slot.date < Date.today%>
-      <a href="/slots/<%=order.slot_id%>/reviews/new" class="card-link">Review your coach</a>
+    <p class="card-text text-left"><%= order.slot.duration %> hours on <strong><%= order.slot.date.strftime("on %d %b %Y, %A") %></strong></p>
+    <span class='badge badge-pill badge-light mx-2'><%=order.status%></span>
+    <% if order.status == "confirmed"%>
+    <a href="/slots/<%=order.slot_id%>/reviews/new" class="btn btn-outline-light">Review your coach</a>
+    <%end%>
+    <% if order.status == "pending"%>
+    <a href="<%=slot_order_path(order.slot, order)%>" class="btn btn-outline-light">Complete your order</a>
     <%end%>
   </div>
+
 </div>
